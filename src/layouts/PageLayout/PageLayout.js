@@ -1,6 +1,7 @@
 import React from 'react'
 import { IndexLink, Link } from 'react-router'
 import PropTypes from 'prop-types'
+import { Header, SideBar } from 'components'
 import './PageLayout.scss'
 
 export const PageLayout = ({ children }) => (
@@ -20,26 +21,13 @@ export const PageLayout = ({ children }) => (
         <img src='img/logo.svg' />
       </div>
       <div className="bottom">
-        fdgdfg
+        <SideBar />
       </div>
     </div>
     <div id="right" className="column">
-      <div className="top-right">
-        <div className="col">
-          <div className="desc">Weight [kg]</div>
-          <div className="val">12.20</div>
-        </div>
-        <div className="col">
-          <div className="desc">Price [EUR / kg]</div>
-          <div className="val">€3.00</div>
-        </div>
-        <div className="col">
-          <div className="desc">Sum [EUR]</div>
-          <div className="val">€36.60</div>
-        </div>
-      </div>
+      <Header />
       <div className="bottom">
-        fghdfghfgh
+        MAIN CONTENT
       </div>
     </div>
   </div>
