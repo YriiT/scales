@@ -1,0 +1,21 @@
+.content{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.col > a {
+  // width: 33.33%;
+  // height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.col {
+  width: 33.33%;
+  height: 50%;
+}
+.view_title{
+  color: black
+}

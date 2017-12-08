@@ -27,7 +27,7 @@ export const PageLayout = ({ children }) => (
     <div id="right" className="column">
       <Header />
       <div className="bottom">
-        MAIN CONTENT
+        {children}
       </div>
     </div>
   </div>

@@ -1,7 +1,8 @@
 .top-right {   
     display: flex;   
     height: 15.4vh;
-    justify-content: space-around;    
+    justify-content: space-around;  
+    align-content:  space-around;
     .col {
     	width: 33.333%;
 	    display: flex;
