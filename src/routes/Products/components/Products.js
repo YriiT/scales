@@ -1,11 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export const Products = () => (
-  <h1>
-    Products
+export class Products extends React.Component {
+  render() {
+    console.log('11', this.props)
+    return (
+      <h1>
+        Products
   </h1>
-)
+    )
+  }
+}
 Products.propTypes = {
 
 }

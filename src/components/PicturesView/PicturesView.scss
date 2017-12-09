@@ -1,12 +1,7 @@
 .content{
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    position: absolute;
-    right: 0;
-    height: 100%;
-    transition-duration: 0.4s;
-    top: 0;
   }
   .category_col {
       width: 33.333%;
@@ -16,17 +11,9 @@
       justify-content: center;
       box-sizing: border-box;
       cursor: pointer;
+      border: 1px solid #eeeff4;
   }
-  a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    text-decoration: none;
-    width: 100%;
-    height: 100%;
-}
+  
  .image {
     height: 26.3vh;
     display: flex;
@@ -34,16 +21,13 @@
     flex-direction: column;
     margin-bottom: 3.4vh;
  }
+
 .view_title{
-  color: black
+  font-weight: 300;
+  font-size: 24px;
+  color: #343b4c;
 }
-.image{
-    height: 26.3vh;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin-bottom: 3.4vh;
-}
+
 .image img {
     max-height: 100%;
 }

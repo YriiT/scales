@@ -1,65 +1,51 @@
 import React from 'react'
+import { IndexLink, Link } from 'react-router'
 import './PicturesView.scss'
 
-// const categoryArray = [
-//   {
-//     key:''
-//   }
-// ]
-
+const categoryArray = [
+  {
+    key: 'Berries',
+    value: 'img/berries.jpg'
+  },
+  {
+    key: 'Exotic',
+    value: 'img/exotic.jpg'
+  },
+  {
+    key: 'Fruits',
+    value: 'img/fuits.png'
+  },
+  {
+    key: 'Nuts',
+    value: 'img/nuts.jpg'
+  },
+  {
+    key: 'Salads',
+    value: 'img/salads.png'
+  },
+  {
+    key: 'Vegetables',
+    value: 'img/vegetables.jpg'
+  }
+]
 class PicturesView extends React.Component {
   render() {
+    console.log(this.props)
     return (
       <div className='content'>
-        <div className="category_col" data-cat="berries">
-
-          <div className="image">
-            <img src="img/berries.jpg" />
-          </div>
-          <div className="view_title">Berries</div>
-
-        </div>
-        <div className="category_col" data-cat="exotic">
-
-          <div className="image">
-            <img src="img/exotic.jpg" />
-          </div>
-          <div className="view_title">Exotic</div>
-
-        </div>
-        <div className="category_col" data-cat="fruits">
-
-          <div className="image">
-            <img src="img/fuits.png" />
-          </div>
-          <div className="view_title">Fruits</div>
-
-        </div>
-        <div className="category_col" data-cat="nuts">
-
-          <div className="image">
-            <img src="img/nuts.jpg" />
-          </div>
-          <div className="view_title">Nuts</div>
-
-        </div>
-        <div className="category_col" data-cat="salads">
-
-          <div className="image">
-            <img src="img/salads.png" />
-          </div>
-          <div className="view_title">
-            Salads
+        {categoryArray.map((item, idx) => (
+          <Link
+            to={`/products/${item.key}`}
+            key={idx}
+            className="category_col"
+            data-cat="berries"
+          >
+            <div className="image">
+              <img src={item.value} />
             </div>
-
-        </div>
-        <div className="category_col" data-cat="vegetables">
-          <div className="image">
-            <img src="img/vegetables.jpg" />
-          </div>
-          <div className="view_title">Vegetables</div>
-
-        </div>
+            <div className="view_title">{item.key}</div>
+          </Link>
+        ))}
       </div>
     )
   }
