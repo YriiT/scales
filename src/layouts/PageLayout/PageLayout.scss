@@ -28,8 +28,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #2c313e;
-  
+  background: #2c313e;  
   box-sizing: border-box;
   height: 15.4vh;
 }
@@ -39,15 +38,9 @@
   flex-shrink: 0;
 }
 
-
-
-ul {
-    display: inline-flex;
-    list-style: none;
-}
-
 .bottom {
   display: flex;
-  flex-grow: 0;  /*ensures that the container will take up the full height of the parent container*/
+  // flex-grow: 1;  /*ensures that the container will take up the full height of the parent container*/
   height: 100%;
 }
+
