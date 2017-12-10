@@ -61,11 +61,15 @@ const Icons = props => {
 
   return (
     <div className='row'>
-      <div className="icon">
-        {svgIcon(props.icon)}
+      <div id='left_icon' className='icon_col'>
+        <div className="icon">
+          {svgIcon(props.icon)}
+        </div>
       </div>
-      <div className="title">
-        {props.label}
+      <div id='right_icon' className='icon_col'>
+        <div className="title">
+          {props.label}
+        </div>
       </div>
     </div>
   )

@@ -8,4 +8,19 @@
   justify-content: space-around;
   flex-direction: row;
   align-items: center;
+  align-content: center;
+}
+.icon_col{ 
+  display: flex;  
+  align-items: center;
+}
+
+
+#left_icon{
+  width: 30%;
+  justify-content: center;
+}
+#right_icon{
+width: 70%;
+justify-content: flex-start;
 }
