@@ -30,7 +30,6 @@ export class Categories extends React.Component {
         value: '/img/vegetables.jpg'
       }
     ]
-    console.log('cat', this.props)
     return (
       <PicturesView imgArray={categoryArray} />
     )

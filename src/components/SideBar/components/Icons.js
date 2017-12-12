@@ -60,7 +60,7 @@ const svgIcon = icon => {
 const Icons = props => {
 
   return (
-    <div className='row'>
+    <div className='row' onClick={props.handleClick}>
       <div id='left_icon' className='icon_col'>
         <div className="icon">
           {svgIcon(props.icon)}
