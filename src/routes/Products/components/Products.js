@@ -31,12 +31,22 @@ export class Products extends React.Component {
       {
         key: 'Idared',
         value: '/img/idared.jpg'
+      },
+      {
+        key: 'Gala',
+        value: '/img/gala.jpg'
+      },
+      {
+        key: 'Gloucester',
+        value: '/img/gloucester.jpg'
       }
     ]
     return (
       <ProductsView
         productType={params.id}
         imgArray={applArray}
+        headerType='products'
+        linkTo='product-info'
       />
     )
   }

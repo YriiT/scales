@@ -1,18 +1,21 @@
 import { connect } from 'react-redux'
-import { hideConfirm } from '../modules/layout'
+import {
+  showSideBarTitle,
+  hideSideBarTitle
+} from '../modules/layout'
 
 import PageLayout from '../components/PageLayout'
 
 const mapDispatchToProps = {
-  //hideConfirm
+  showSideBarTitle,
+  hideSideBarTitle
 }
 
-const mapStateToProps = (state, ownProps) => {
-  console.log(state, ownProps)
+const mapStateToProps = (state) => {
   return ({
-    fetching: state['global'].fetching,
-    isError: state['global'].isError,
-    test: 'testss'
+    leftWidth: state['global'].leftWidth,
+    rightWidth: state['global'].rightWidth,
+    showTitle: state['global'].showTitle
   })
 }
 

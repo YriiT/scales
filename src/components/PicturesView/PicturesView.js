@@ -6,17 +6,17 @@ import './PicturesView.scss'
 
 class PicturesView extends React.Component {
   render() {
-    const { imgArray } = this.props
-    console.log(this.props)
+    const { imgArray, linkTo } = this.props
+    let imgWidth = imgArray.length == 6 ? '33.333%' : '25%'
     return (
       <div className='content'>
         {imgArray && imgArray.map((item, idx) => (
           <Link
-            to={`/products/${item.key}`}
-            key={idx}
             className="category_col"
-            data-cat="berries"
-          >
+            to={`/${linkTo}/${item.key}`}
+            key={idx}
+            style={{ width: imgWidth }}
+            data-cat="berries">
             <div className="image">
               <img src={item.value} />
             </div>

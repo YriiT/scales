@@ -1,4 +1,5 @@
 import React from 'react'
+import SVGIcons from 'components'
 import './Icons.scss'
 
 const svgIcon = icon => {
@@ -55,26 +56,64 @@ const svgIcon = icon => {
         </svg>
       )
       break
+    case 'prev':
+      return (
+        <svg width="80" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 139.36 37.86">
+          <g id="Слой_2" data-name="Слой 2">
+            <g id="Слой_1-2" data-name="Слой 1">
+              <path className="cls-1" d="M137.94,17.51H4.84L19.93,2.42a1.42,1.42,0,0,0-2-2L.42,17.93a1.42,1.42,0,0,0-.31.47v0a1.38,1.38,0,0,0,0,1v0a1.42,1.42,0,0,0,.31.47L17.93,37.45a1.42,1.42,0,0,0,2-2L4.84,20.35H137.94a1.42,1.42,0,1,0,0-2.83Z" fill='#343b4c' />
+            </g>
+          </g>
+        </svg>
+      )
+      break
+    case 'next':
+      return (
+        <svg width="80" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 139.36 37.86">
+          <g id="Слой_2" data-name="Слой 2">
+            <g id="Слой_1-2" data-name="Слой 1">
+              <path className="cls-1" d="M1.42,20.35H134.52L119.43,35.44a1.42,1.42,0,1,0,2,2l17.51-17.51a1.42,1.42,0,0,0,.31-.47v0a1.38,1.38,0,0,0,0-1v0a1.42,1.42,0,0,0-.31-.47L121.43.42a1.42,1.42,0,1,0-2,2l15.09,15.09H1.42a1.42,1.42,0,1,0,0,2.83Z" fill='#343b4c' />
+            </g>
+          </g>
+        </svg>
+      )
+      break
+    case 'home':
+      return (
+        <svg width="35" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39.47 41.52">
+          <g id="Слой_2" data-name="Слой 2">
+            <g id="Слой_1-2" data-name="Слой 1">
+              <path class="cls-2" d="M37.91,14.37,22.74,1.12a4.58,4.58,0,0,0-6,0L1.56,14.37A4.57,4.57,0,0,0,0,17.81V40.1a1.42,1.42,0,0,0,1.42,1.42H12.84a1.42,1.42,0,0,0,1.42-1.42V30A1.74,1.74,0,0,1,16,28.22h7.49A1.74,1.74,0,0,1,25.21,30V40.1a1.42,1.42,0,0,0,1.42,1.42H38.06a1.42,1.42,0,0,0,1.42-1.42V17.81A4.57,4.57,0,0,0,37.91,14.37ZM36.64,38.68H28V30a4.58,4.58,0,0,0-4.57-4.57H16A4.58,4.58,0,0,0,11.42,30v8.73H2.83V17.81a1.74,1.74,0,0,1,.59-1.31L18.6,3.26a1.74,1.74,0,0,1,2.28,0L36,16.5a1.74,1.74,0,0,1,.59,1.31Z" fill='#fff' />
+            </g></g></svg>
+      )
+      break
+    case 'back':
+      return (
+        <svg width="35" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46.71 37.86">
+          <g id="Слой_2" data-name="Слой 2">
+            <g id="Слой_1-2" data-name="Слой 1">
+              <path class="cls-2" d="M45.29,17.51H4.84L19.93,2.42a1.42,1.42,0,0,0-2-2L.42,17.93a1.42,1.42,0,0,0-.31.47v0a1.38,1.38,0,0,0,0,1v0a1.42,1.42,0,0,0,.31.47L17.93,37.45a1.42,1.42,0,0,0,2-2L4.84,20.35H45.29a1.42,1.42,0,0,0,0-2.83Z" fill='#fff' />
+            </g></g></svg>
+      )
+      break
   }
 }
 const Icons = props => {
-
   return (
-    <div className='row' onClick={props.handleClick}>
+    <div className='row' onClick={() => props.handleClick(true)}>
       <div id='left_icon' className='icon_col'>
         <div className="icon">
           {svgIcon(props.icon)}
         </div>
       </div>
-      <div id='right_icon' className='icon_col'>
-        <div className="title">
-          {props.label}
-        </div>
-      </div>
+      {props.label && props.showTitle &&
+        <div id='right_icon' className='icon_col'>
+          <div className="title">
+            {props.label}
+          </div>
+        </div>}
     </div>
   )
 }
-
-
 
 export default Icons
