@@ -7,12 +7,9 @@ const Logo = props => {
   let logotip = props.showTitle ? logo : shLogo
   return (
     <div
-      id={logotip = props.showTitle ? 'logo' : 'shLogo'}
+      id={props.showTitle ? 'logo' : 'shLogo'}
       className="top-left">
-      {props.showTitle
-        ? <img src={logo} alt='logo' />
-        : <img src={shLogo} alt='logo' />
-      }
+      <img src={logotip} alt='logo' />
     </div>
   )
 }

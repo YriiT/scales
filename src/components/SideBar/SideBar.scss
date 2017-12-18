@@ -8,10 +8,14 @@
   flex-grow: 1;  
 }
 .sidebar_link{
+  text-decoration: none !important;
   display: flex;
   height: 100%;
   width: 100%;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+}
+.sidebar_link :hover{
+  background-color: #03c9a9;
 }

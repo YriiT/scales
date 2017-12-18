@@ -10,9 +10,9 @@ export class ProductInfo extends React.Component {
       <div className='info_container'>
         <div className='info_left'>
           <div className='left_img'>
-            <div className='img_wrap'>
-              <img src='/img/8.png' />
-            </div>
+
+            <img src='/img/88.png' />
+
           </div>
           <div className='description'>
             <div className='description_row'>
@@ -71,29 +71,33 @@ export class ProductInfo extends React.Component {
         </div>
         {/* правая часть */}
         <div className='info_right'>
-          <div className='info_right_title'>Get a discount 10%</div>
-          <div className='info_right_subtitle'>for the wine</div>
-          <div className='info_right_text'>Goes ideally with Jonagored apples</div>
-          <div className='info_right_row'>
-            <div className='info_col_left'>
-              <h3>Chardonnay</h3>
-              <div className='info_right_text'>
-                A green-skinned grape variety used in the production of white wine.
+          <div className='info_right_content'>
+            <div className='info_right_title'>Get a discount 10%</div>
+            <div className='info_right_subtitle'>for the wine</div>
+            <div className='info_right_text'>Goes ideally with Jonagored apples</div>
+            <div className='info_right_row'>
+              <div className='info_col_left'>
+                <div className='info_right_subtitle price'>Chardonnay</div>
+                <div className='info_right_text'>
+                  A green-skinned grape variety used in the production of white wine.
                 The variety originated in the Burgundy wine region of eastern France,
                 but is now grown wherever wine is produced, from England to New Zealand.
 								</div>
-              <div className='info_right_subtitle'> € 13.50</div>
-              <div className='info_right_text'>Bottle 750ml</div>
+                <div className='info_right_subtitle price'> € 13.50</div>
+                <div className='info_right_text'>Bottle 750ml</div>
+              </div>
+              <div className='info_col_right'>
+                <img src='/img/999.png' />'
             </div>
-            <div className='info_col_right'>
-              <img src='/img/bottle.png' />'
             </div>
           </div>
-          <div className='info_print'>
-            <Icons showTitle icon='print' label='Print the promotional price tag for the item' />
-          </div>
-          <div className='info_where_in_shop'>
-            <Icons showTitle icon='find' label='Print the promotional price tag for the item' />
+          <div className='info_right_footer'>
+            <div className='info_print'>
+              <Icons showTitle icon='print' label='Print the promotional price tag for the item' />
+            </div>
+            <div className='info_where_in_shop'>
+              <Icons showTitle icon='find' label='Print the promotional price tag for the item' />
+            </div>
           </div>
         </div>
       </div >

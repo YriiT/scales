@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 class PageLayout extends React.Component {
 
   render() {
-    const { children, showSideBarTitle, hideSideBarTitle, leftWidth, rightWidth, showTitle } = this.props
+    const { children, router, showSideBarTitle, hideSideBarTitle, leftWidth, rightWidth, showTitle } = this.props
     if (location.pathname === '/') {
       showSideBarTitle()
     } else {
@@ -21,7 +21,7 @@ class PageLayout extends React.Component {
             <Logo showTitle={showTitle} />
           </div>
           <div className="bottom"  >
-            <SideBar showTitle={showTitle} />
+            <SideBar showTitle={showTitle} goBack={router.goBack} />
           </div>
         </div>
         <div style={{ width: rightWidth }} id="right" className="column" >

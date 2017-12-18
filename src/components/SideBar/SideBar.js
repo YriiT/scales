@@ -6,9 +6,9 @@ import './SideBar.scss'
 const SideBar = (props) => (
   <div className='side_bar'>
     {!props.showTitle &&
-      <Link className='sidebar_link' to='' >
+      <div className='sidebar_link' onClick={() => props.goBack()} >
         <Icons showTitle={props.showTitle} icon='back' />
-      </Link>}
+      </div>}
     {!props.showTitle &&
       <IndexLink className='sidebar_link' to='/' >
         <Icons showTitle={props.showTitle} icon='home' />
