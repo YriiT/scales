@@ -4,6 +4,7 @@ import Categories from './Categories'
 import SubCategories from './SubCategories'
 import Products from './Products'
 import ProdutInfo from './ProductInfo'
+import ProductOnScales from './ProductOnScales'
 
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
@@ -15,7 +16,8 @@ export const createRoutes = (store) => ({
   childRoutes: [
     Products(store),
     ProdutInfo(store),
-    SubCategories(store)
+    SubCategories(store),
+    ProductOnScales(store)
   ]
 })
 

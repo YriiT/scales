@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { ProductsView } from 'components'
+import { ProductsView, Icons } from 'components'
 import './ProductInfo.scss'
 
 export class ProductInfo extends React.Component {
@@ -39,41 +39,62 @@ export class ProductInfo extends React.Component {
                 </div>
               </div>
             </div>
-            {/* состава */}
+            {/* состав */}
             <div className='description_row nutrition_header'>
               Nutriotion facts (per 100g)
             </div>
-            <div className='description_row'>
+            <div className='description_row nutrition'>
               <div className='left_description_col'>
-                <div className='nutrition_content'>
+                <div className='nutrition_content left'>
                   Cals
                 </div>
-                <div className='nutrition_content'>
+                <div className='nutrition_content left'>
                   Carb
                 </div>
-                <div className='nutrition_content'>
+                <div className='nutrition_content left'>
                   Fats
                 </div>
               </div>
               <div className='right_description_col'>
-                <div className='nutrition_content'>
-                  Cals
+                <div className='nutrition_content right'>
+                  100
                 </div>
-                <div className='nutrition_content'>
-                  Carb
+                <div className='nutrition_content right'>
+                  200
                 </div>
-                <div className='nutrition_content'>
-                  Fats
+                <div className='nutrition_content right'>
+                  0.005
                 </div>
               </div>
             </div>
           </div>
-          <div className>
-          </div>
         </div>
-
+        {/* правая часть */}
         <div className='info_right'>
-          правый бок
+          <div className='info_right_title'>Get a discount 10%</div>
+          <div className='info_right_subtitle'>for the wine</div>
+          <div className='info_right_text'>Goes ideally with Jonagored apples</div>
+          <div className='info_right_row'>
+            <div className='info_col_left'>
+              <h3>Chardonnay</h3>
+              <div className='info_right_text'>
+                A green-skinned grape variety used in the production of white wine.
+                The variety originated in the Burgundy wine region of eastern France,
+                but is now grown wherever wine is produced, from England to New Zealand.
+								</div>
+              <div className='info_right_subtitle'> € 13.50</div>
+              <div className='info_right_text'>Bottle 750ml</div>
+            </div>
+            <div className='info_col_right'>
+              <img src='/img/bottle.png' />'
+            </div>
+          </div>
+          <div className='info_print'>
+            <Icons showTitle icon='print' label='Print the promotional price tag for the item' />
+          </div>
+          <div className='info_where_in_shop'>
+            <Icons showTitle icon='find' label='Print the promotional price tag for the item' />
+          </div>
         </div>
       </div >
 

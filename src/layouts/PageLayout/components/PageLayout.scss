@@ -16,18 +16,6 @@
   
 }
 
-.top-left {
-  flex-shrink: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #2c313e;  
-  box-sizing: border-box;
-  height: 20%;
-}
-.top-left > img {  
-  transform: scale(0.6);
-  }
 
 .bottom {
   display: flex;

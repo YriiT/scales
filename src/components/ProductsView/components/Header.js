@@ -1,13 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router'
 import './Header.scss'
 const Header = props => {
-  const className = props.header.length == 6 ? 'subcategory_header' : 'products_header'
+  const { headerArray, headerType } = props
+  console.log('headerArray', headerArray)
   return (
-    <div className={className}>
-      {props.header.map((item, idx) => (
-        <div key={idx} className='header_title'>
+    <div className={headerType}>
+      {headerArray && headerArray.map((item, idx) => (
+        <Link to='' key={idx} className='header_title'>
           {item}
-        </div>
+        </Link>
       ))}
     </div>
   )

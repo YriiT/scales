@@ -41,11 +41,13 @@ export class Products extends React.Component {
         value: '/img/gloucester.jpg'
       }
     ]
+    const headerArray = ['Fruits', params.id]
     return (
       <ProductsView
         productType={params.id}
         imgArray={applArray}
-        headerType='products'
+        headerType='products_header'
+        headerArray={headerArray}
         linkTo='product-info'
       />
     )

@@ -41,11 +41,14 @@ export class SubCategories extends React.Component {
         value: '/img/pear.jpg'
       }
     ]
+    const headerArray = ['Berries', 'Exotic', 'Fruts', 'Nuts', 'Salads', 'Vegetables']
+    console.log(params)
     return (
       <ProductsView
         productType={params.id}
         imgArray={subCategorylArray}
-        headerType=''
+        headerArray={headerArray}
+        headerType='subcategory_header'
         linkTo='products'
       />
     )

@@ -1,9 +1,8 @@
 import React from 'react'
-import { logo, shLogo } from '../assets'
 import { IndexLink, Link } from 'react-router'
-import PropTypes from 'prop-types'
 import { Header, SideBar, Logo } from 'components'
 import './PageLayout.scss'
+import PropTypes from 'prop-types'
 
 class PageLayout extends React.Component {
 

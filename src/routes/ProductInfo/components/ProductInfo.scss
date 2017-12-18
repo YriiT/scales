@@ -6,7 +6,7 @@
   width: 100%;
   height: 100%;
 }
-.info_left, .info_right{
+.info_left{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -22,7 +22,7 @@
   width: 100%;
   height: 100%;
 }
- .left_img >.img_wrap > img{   
+.img_wrap > img{   
    transform: scale(0.18)
 }
 .left_img{
@@ -44,8 +44,10 @@
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  margin-left: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
+
 .nutrition_header{
   justify-content: center;
   font-size: 28px;
@@ -53,6 +55,7 @@
 }
 .left_description_col{
   display: flex;
+  width: 100%;
   flex-direction: column;
   justify-content: space-between;
   
@@ -62,7 +65,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  
+  width: 100%;
 }
 .description_content{
   font-size: 30px;
@@ -75,10 +78,82 @@
   text-transform: uppercase;
   font-size: 16px;
 }
-.nutrition_content{
+.nutrition_content {
   width: 100%;
   font-size: 24px;
   display: flex;
   align-items: center;
+  border-bottom: 1px solid #eeeff4;
+  
+}
+.right{
+justify-content: flex-end;
+}
+.left{
   justify-content: flex-start;
+}
+
+.info_right{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+}
+.info_right{
+  background: #fed433;
+  //box-sizing: border-box;
+  color: #2e394a;
+}
+.info_right_title{
+  font-size: 48px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+}
+.info_right_subtitle{
+font-size: 38px;
+}
+.info_right_text{
+font-size: 18px;
+}
+.info_right_row{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.info_col_left{
+  display: flex;
+  flex: 1.5;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  //padding-right: 20px;
+  padding-left: 20px;
+}
+.info_col_right{
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  
+}
+.info_col_right > img{
+  transform: scale(0.7)
+}
+.info_print, .info_where_in_shop{
+  display: flex;
+  align-items: center;
+  height: 15%;
+  width: 100%;
+  background: #343b4c;
+  
+}
+.info_print{
+  border-bottom: 2px solid #2c313e;
 }

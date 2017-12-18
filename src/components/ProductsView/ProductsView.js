@@ -6,14 +6,11 @@ import './ProductsView.scss'
 
 class ProductsView extends React.Component {
   render() {
-    const { imgArray, productType, headerType, linkTo } = this.props
-
-    const subCategoryHederArray = ['Berries', 'Exotic', 'Fruts', 'Nuts', 'Salads', 'Vegetables']
-    const productsHeaderArray = ['Fruits', 'Apples']
-    const headerArray = headerType == 'products' ? productsHeaderArray : subCategoryHederArray
+    const { imgArray, productType, headerArray, headerType, linkTo } = this.props
+    console.log('ProductsView', this.props)
     return (
       <div className='products_content'>
-        <Header header={headerArray} />
+        <Header headerArray={headerArray} headerType={headerType} />
         <PicturesView imgArray={imgArray} linkTo={linkTo} />
         <div className='products_futer'>
           <div className='prev'>
