@@ -13,17 +13,20 @@ export class ProductOnScales extends React.Component {
         onScaleslArray.push({
           key: 'Jonagored',
           value: '/img/red-apple.jpg',
-          sale: '99% of the match'
+          match: '99% of the match'
         })
       } else {
         onScaleslArray.push({
           key: 'Granny Smith',
           value: '/img/green-apple.jpg',
-          sale: '85% of the match'
+          match: '85% of the match'
         })
       }
     }
-    const headerArray = ['The most likely options', 'Select manually']
+    const headerArray = [
+      { key: 1, value: 'The most likely options', link: '' },
+      { key: 2, value: 'Select manually', link: 'sub-categories/all' },
+    ]
     return (
       <ProductsView
         productType={params.id}

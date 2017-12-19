@@ -32,7 +32,7 @@ export class Categories extends React.Component {
     ]
     return (
       <PicturesView imgArray={categoryArray}
-        linkTo='subCategories' />
+        linkTo='sub-categories' />
     )
   }
 }

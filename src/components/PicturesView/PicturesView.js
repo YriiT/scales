@@ -11,15 +11,16 @@ class PicturesView extends React.Component {
       <div className='content'>
         {imgArray && imgArray.map((item, idx) => (
           <Link
-            className="category_col"
+            className='category_col'
             to={`/${linkTo}/${item.key}`}
             key={idx}
             style={{ width: imgWidth }}
-            data-cat="berries">
-            <div className="image">
+          >
+            <div className='image'>
               <img src={item.value} />
             </div>
-            <div className="view_title">{item.key}</div>
+            <div className='view_title'>{item.key}</div>
+            {item.key && <div className='view_match'>{item.match}</div>}
           </Link>
         ))}
       </div>

@@ -10,9 +10,7 @@ export class ProductInfo extends React.Component {
       <div className='info_container'>
         <div className='info_left'>
           <div className='left_img'>
-
             <img src='/img/88.png' />
-
           </div>
           <div className='description'>
             <div className='description_row'>

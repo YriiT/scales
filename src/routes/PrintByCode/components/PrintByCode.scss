@@ -1,0 +1,60 @@
+.print_container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+}
+.left_print {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  width: 50%;
+  height: 100%;
+}
+.button_row, .button_delete{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 33.333%;  
+  height: 25%;
+  border: 1px solid #eeeff4;
+  color: black;
+  font-size: 40px;
+  cursor: pointer;
+}
+.button_row:hover{
+  font-size: 50px;
+}
+
+.button_delete{
+width: 66.666%;  
+}
+.right_print {
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
+  justify-content: space-around;
+  width: 50%;
+  height: 100%;
+}
+.input_numbers{
+  height: 75%;
+  width: 100%;
+  display: flex;  
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-size: 48px;
+}
+.button_enter{
+  height: 25%;
+  width: 100%;
+  display: flex;  
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #eeeff4;
+}
+

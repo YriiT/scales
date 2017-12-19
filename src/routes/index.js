@@ -5,7 +5,7 @@ import SubCategories from './SubCategories'
 import Products from './Products'
 import ProdutInfo from './ProductInfo'
 import ProductOnScales from './ProductOnScales'
-
+import PrintByCode from './PrintByCode'
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
 
@@ -17,7 +17,8 @@ export const createRoutes = (store) => ({
     Products(store),
     ProdutInfo(store),
     SubCategories(store),
-    ProductOnScales(store)
+    ProductOnScales(store),
+    PrintByCode(store)
   ]
 })
 

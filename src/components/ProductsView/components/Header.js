@@ -7,8 +7,8 @@ const Header = props => {
   return (
     <div className={headerType}>
       {headerArray && headerArray.map((item, idx) => (
-        <Link to='' key={idx} className='header_title'>
-          {item}
+        <Link to={`/${item.link}`} key={idx} className='header_title'>
+          {item.value}
         </Link>
       ))}
     </div>

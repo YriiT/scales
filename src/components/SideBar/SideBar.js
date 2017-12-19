@@ -16,7 +16,7 @@ const SideBar = (props) => (
     <Link className='sidebar_link' to='/produc-on-scales' >
       <Icons showTitle={props.showTitle} icon='Wizard' label='Wizard is running' />
     </Link>
-    <Link className='sidebar_link' to='' >
+    <Link className='sidebar_link' to='/print-by-code' >
       <Icons showTitle={props.showTitle} icon='Product' label='Product code input' />
     </Link>
     <Link className='sidebar_link' to='' >
