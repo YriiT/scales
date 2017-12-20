@@ -5,13 +5,14 @@
   flex-wrap: wrap;
   align-items: stretch;
   text-decoration: none;
+  justify-content: center;
 }
 .category_col {
   height: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   cursor: pointer;
   text-decoration: none !important;
 }

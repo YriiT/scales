@@ -19,7 +19,7 @@ const SideBar = (props) => (
     <Link className='sidebar_link' to='/print-by-code' >
       <Icons showTitle={props.showTitle} icon='Product' label='Product code input' />
     </Link>
-    <Link className='sidebar_link' to='' >
+    <Link className='sidebar_link' to='/search-by-name' >
       <Icons showTitle={props.showTitle} icon='Search' label='Search by name' />
     </Link>
     <Link className='sidebar_link' to='' >

@@ -6,6 +6,7 @@ import Products from './Products'
 import ProdutInfo from './ProductInfo'
 import ProductOnScales from './ProductOnScales'
 import PrintByCode from './PrintByCode'
+import SearchByName from './SearchByName'
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
 
@@ -18,7 +19,8 @@ export const createRoutes = (store) => ({
     ProdutInfo(store),
     SubCategories(store),
     ProductOnScales(store),
-    PrintByCode(store)
+    PrintByCode(store),
+    SearchByName(store)
   ]
 })
 
