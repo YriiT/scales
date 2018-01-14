@@ -45,6 +45,7 @@ export class Products extends React.Component {
       { key: 1, value: 'Fruits', link: 'sub-categories/Fruits' },
       { key: 2, value: params.id, link: '' },
     ]
+    console.log(123, this.props)
     return (
       <ProductsView
         productType={params.id}

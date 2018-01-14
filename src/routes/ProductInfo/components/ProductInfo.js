@@ -94,7 +94,7 @@ export class ProductInfo extends React.Component {
               <Icons showTitle icon='print' label='Print the promotional price tag for the item' />
             </div>
             <div className='info_where_in_shop'>
-              <Icons showTitle icon='find' label='Print the promotional price tag for the item' />
+              <Icons showTitle icon='find' label='Where to find in the shop' />
             </div>
           </div>
         </div>

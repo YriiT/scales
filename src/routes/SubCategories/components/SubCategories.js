@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { ProductsView } from 'components'
 
-
 export class SubCategories extends React.Component {
 
   render() {
@@ -44,7 +43,7 @@ export class SubCategories extends React.Component {
     const headerArray = [
       { key: 1, value: 'Berries', link: 'sub-categories/Berries' },
       { key: 2, value: 'Exotic', link: 'sub-categories/Exotic' },
-      { key: 3, value: 'Fruts', link: 'sub-categories/Fruts' },
+      { key: 3, value: 'Fruits', link: 'sub-categories/Fruits' },
       { key: 4, value: 'Nuts', link: 'sub-categories/Nuts' },
       { key: 5, value: 'Salads', link: 'sub-categories/Salads' },
       { key: 6, value: 'Vegetables', link: 'sub-categories/Vegetables' }
@@ -62,7 +61,7 @@ export class SubCategories extends React.Component {
   }
 }
 SubCategories.propTypes = {
-
+  params: PropTypes.object
 }
 
 export default SubCategories
