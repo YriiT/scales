@@ -10,7 +10,7 @@ export class SearchByName extends React.Component {
     super(props)
     this.state = {
       letters: '',
-      siftActiv: false,
+      shiftActiv: false,
       resultArray: [
       ]
 
@@ -42,20 +42,16 @@ export class SearchByName extends React.Component {
       }
     ]
     const filterByKey = (obj) => {
-      if ('key' in obj && obj.key === this.state.letters) {
-        return true;
-      } else {
-        return false;
-      }
+      return 'key' in obj && obj.key === this.state.letters
     }
     this.setState({ resultArray: categoryArray.filter(filterByKey) })
     this.setState({ letters: '' })
   }
   _handleButtonShiftClick() {
-    this.state.siftActiv ? this.setState({ siftActiv: false }) : this.setState({ siftActiv: true })
+    this.state.shiftActiv ? this.setState({ shiftActiv: false }) : this.setState({ shiftActiv: true })
   }
   handleButtonClick = (num) => {
-    if (this.state.siftActiv) {
+    if (this.state.shiftActiv) {
       this.setState({ letters: this.state.letters + num.toUpperCase() })
     } else {
       this.setState({ letters: this.state.letters + num })
@@ -65,8 +61,8 @@ export class SearchByName extends React.Component {
     const firstRowArray = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l']
     const secondRowArray = ['z', 'x', 'c', 'v', 'b', 'n', 'm']
     const { params } = this.props
-    const { siftActiv, letters } = this.state
-    console.log('this.state', this.state)
+    const { shiftActiv, letters } = this.state
+
     return (
       <div className='search_container'>
         <div className='search_header'>
@@ -81,7 +77,7 @@ export class SearchByName extends React.Component {
             <div className='letters'>
               {firstRowArray.map((item, idx) =>
                 <div key={idx} className='search_button_row' onClick={() => this.handleButtonClick(item)}>
-                  {siftActiv ? item.toUpperCase() : item}
+                  {shiftActiv ? item.toUpperCase() : item}
                 </div>
               )}
               <div className='search_button_del' onClick={this._handleButtonDelete}>
@@ -96,10 +92,10 @@ export class SearchByName extends React.Component {
             {secondRowArray.map((item, idx) =>
               <div key={idx} className='search_button_row second' onClick={() => this.handleButtonClick(item)}
               >
-                {siftActiv ? item.toUpperCase() : item}
+                {shiftActiv ? item.toUpperCase() : item}
               </div>
             )}
-            <div id='spec' className={`search_button_row second ${siftActiv && 'shift'}`} onClick={this._handleButtonShiftClick}>Shift</div>
+            <div id='spec' className={`search_button_row second ${shiftActiv && 'shift'}`} onClick={this._handleButtonShiftClick}>Shift</div>
             <div id='spec' className='search_button_row second' onClick={() => this.handleButtonClick(' ')}>Space</div>
           </div>
         </div>

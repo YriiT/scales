@@ -13,3 +13,12 @@
 #shLogo > img {  
   transform: scale(0.4);
   }
+
+@media screen and (width: 1920px) {
+    #logo > img {  
+    transform: scale(0.9);
+    }
+  #shLogo > img {  
+    transform: scale(0.7);
+    }
+}

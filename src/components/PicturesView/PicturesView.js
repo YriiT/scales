@@ -6,7 +6,7 @@ import './PicturesView.scss'
 class PicturesView extends React.Component {
   render() {
     const { imgArray, linkTo } = this.props
-    let imgWidth = imgArray.length == 6 ? '33.333%' : '25%'
+    let imgWidth = imgArray.length === 2 ? `${100 / imgArray.length}%` : `${200 / imgArray.length}%`
     return (
       <div className='content'>
         {imgArray && imgArray.map((item, idx) => (

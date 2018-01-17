@@ -1,16 +1,18 @@
 
-export const defaultSettings = {
-  mode: 'cors',
-  credentials: 'include',
-  headers: {
-    'Content-Type': 'application/json; charset=utf-8'
-  }
-}
+
 
 // ------Юр лица-----
 
 // let test = 9181
 // let prod = 9180
 // const ulport = test
-const ulServerAdress = `http://namezis.com/api/current_weight`
-export const currentWeight = `${ulServerAdress}/current_weight`
+const serverAdress = 'http://namezis.com/api'
+
+export const currentWeight = `${serverAdress}/current_weight`
+export const userAction = `${serverAdress}/user_action`
+export const productNames = `${serverAdress}/product_names`
+export const printBarcode = `${serverAdress}/print_barcode`
+export const productImage = `${serverAdress}/product_image`
+export const productPrice = `${serverAdress}/product_price`
+export const categoryNames = `${serverAdress}/category_names`
+export const categoryProduct = `${serverAdress}/category_product`

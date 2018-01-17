@@ -3,20 +3,17 @@ import './Header.scss'
 
 class Header extends React.Component {
   componentDidMount() {
-    const { getConfig } = this.props
-    setInterval(() => getConfig(), 3000)
-
+    const { getWeight } = this.props
+    setInterval(() => getWeight(), 30000)
   }
-  componentWillUnmount() {
 
-  }
   render() {
     return (
       <div className='top-right'>
         <div className='col'>
           <div className='desc'>Weight [kg]</div>
           <div className='val'>
-            {this.props.weight.data ? this.props.weight.data.weight : ''}</div>
+            {this.props.weight ? this.props.weight : ''}</div>
         </div>
         <div className='col'>
           <div className='desc'>Price [EUR / kg]</div>

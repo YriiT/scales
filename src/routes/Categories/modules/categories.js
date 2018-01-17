@@ -1,48 +1,45 @@
+import { urls, methods } from 'utils'
+
 // ------------------------------------
 // Constants
 // ------------------------------------
-export const COUNTER_INCREMENT = 'COUNTER_INCREMENT'
-export const COUNTER_DOUBLE_ASYNC = 'COUNTER_DOUBLE_ASYNC'
+export const GET_CATEGORY_NAMES = 'GET_CATEGORY_NAMES'
+export const GET_CATEGORY_PRODUCT = 'GET_CATEGORY_PRODUCT'
 
 // ------------------------------------
 // Actions
 // ------------------------------------
-export function increment(value = 1) {
+const receiveCategoryNames = categoryNames => {
   return {
-    type: COUNTER_INCREMENT,
-    payload: value
+    type: GET_CATEGORY_NAMES,
+    categoryNames
   }
 }
+const receiveСategoryProduct = categoryProduct => {
+  return {
+    type: GET_CATEGORY_PRODUCT,
+    categoryProduct
+  }
+}
+// ---- methods
 
+export const getCategoryNames = () => methods.mainGet(urls.categoryNames, receiveCategoryNames)
+export const getCategoryProduct = () => methods.mainGet(urls.categoryProduct, receiveСategoryProduct)
 /*  This is a thunk, meaning it is a function that immediately
     returns a function for lazy evaluation. It is incredibly useful for
     creating async actions, especially when combined with redux-thunk! */
 
-export const doubleAsync = () => {
-  return (dispatch, getState) => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        dispatch({
-          type: COUNTER_DOUBLE_ASYNC,
-          payload: getState().counter
-        })
-        resolve()
-      }, 200)
-    })
-  }
-}
-
 export const actions = {
-  increment,
-  doubleAsync
+  receiveCategoryNames,
+  receiveСategoryProduct
 }
 
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [COUNTER_INCREMENT]: (state, action) => state + action.payload,
-  [COUNTER_DOUBLE_ASYNC]: (state, action) => state * 2
+  [GET_CATEGORY_NAMES]: (state, action) => ({ ...state, categoryNames: action.categoryNames.data }),
+  [GET_CATEGORY_PRODUCT]: (state, action) => ({ ...state, categoryProduct: action.categoryProduct.data })
 }
 
 // ------------------------------------

@@ -3,6 +3,11 @@ import PropTypes from 'prop-types'
 import { PicturesView } from 'components'
 
 export class Categories extends React.Component {
+  componentDidMount() {
+    const { getCategoryNames, getCategoryProduct } = this.props
+    getCategoryProduct()
+    getCategoryNames()
+  }
   render() {
     const categoryArray = [
       {
@@ -21,15 +26,16 @@ export class Categories extends React.Component {
         key: 'Nuts',
         value: '/img/nuts.jpg'
       },
-      {
-        key: 'Salads',
-        value: '/img/salads.png'
-      },
-      {
-        key: 'Vegetables',
-        value: '/img/vegetables.jpg'
-      }
+      // {
+      //   key: 'Salads',
+      //   value: '/img/salads.png'
+      // },
+      // {
+      //   key: 'Vegetables',
+      //   value: '/img/vegetables.jpg'
+      // }
     ]
+
     return (
       <PicturesView imgArray={categoryArray}
         linkTo='sub-categories' />

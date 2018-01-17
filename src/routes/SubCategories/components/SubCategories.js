@@ -45,10 +45,9 @@ export class SubCategories extends React.Component {
       { key: 2, value: 'Exotic', link: 'sub-categories/Exotic' },
       { key: 3, value: 'Fruits', link: 'sub-categories/Fruits' },
       { key: 4, value: 'Nuts', link: 'sub-categories/Nuts' },
-      { key: 5, value: 'Salads', link: 'sub-categories/Salads' },
-      { key: 6, value: 'Vegetables', link: 'sub-categories/Vegetables' }
+      // { key: 5, value: 'Salads', link: 'sub-categories/Salads' },
+      // { key: 6, value: 'Vegetables', link: 'sub-categories/Vegetables' }
     ]
-    console.log(params)
     return (
       <ProductsView
         productType={params.id}

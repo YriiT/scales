@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import {
   showSideBarTitle,
   hideSideBarTitle,
-  getConfig
+  getWeight
 } from '../modules/layout'
 
 import PageLayout from '../components/PageLayout'
@@ -10,7 +10,7 @@ import PageLayout from '../components/PageLayout'
 const mapDispatchToProps = {
   showSideBarTitle,
   hideSideBarTitle,
-  getConfig
+  getWeight
 }
 
 const mapStateToProps = (state) => {
@@ -18,6 +18,7 @@ const mapStateToProps = (state) => {
     leftWidth: state['global'].leftWidth,
     rightWidth: state['global'].rightWidth,
     showTitle: state['global'].showTitle,
+    logotip: state['global'].logotip,
     weight: state['global'].weight,
   })
 }
