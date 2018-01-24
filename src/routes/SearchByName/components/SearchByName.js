@@ -11,9 +11,7 @@ export class SearchByName extends React.Component {
     this.state = {
       letters: '',
       shiftActiv: false,
-      resultArray: [
-      ]
-
+      resultArray: []
     }
     this._handleButtonDelete = this._handleButtonDelete.bind(this)
     this._handleButtonEnter = this._handleButtonEnter.bind(this)
@@ -60,7 +58,6 @@ export class SearchByName extends React.Component {
   render() {
     const firstRowArray = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l']
     const secondRowArray = ['z', 'x', 'c', 'v', 'b', 'n', 'm']
-    const { params } = this.props
     const { shiftActiv, letters } = this.state
 
     return (
@@ -69,8 +66,7 @@ export class SearchByName extends React.Component {
           {letters}
         </div>
         <div className='search_resalt'>
-          <PicturesView imgArray={this.state.resultArray}
-            linkTo='' />
+          <PicturesView imgArray={this.state.resultArray} linkTo='' />
         </div>
         <div className='search_footer'>
           <div className='footer_first_row'>
@@ -90,13 +86,16 @@ export class SearchByName extends React.Component {
           </div>
           <div className='footer_second_row'>
             {secondRowArray.map((item, idx) =>
-              <div key={idx} className='search_button_row second' onClick={() => this.handleButtonClick(item)}
-              >
+              <div key={idx} className='search_button_row second' onClick={() => this.handleButtonClick(item)}>
                 {shiftActiv ? item.toUpperCase() : item}
               </div>
             )}
-            <div id='spec' className={`search_button_row second ${shiftActiv && 'shift'}`} onClick={this._handleButtonShiftClick}>Shift</div>
-            <div id='spec' className='search_button_row second' onClick={() => this.handleButtonClick(' ')}>Space</div>
+            <div id='spec'
+              className={`search_button_row second ${shiftActiv && 'shift'}`}
+              onClick={this._handleButtonShiftClick}>Shift</div>
+            <div id='spec'
+              className='search_button_row second'
+              onClick={() => this.handleButtonClick(' ')}>Space</div>
           </div>
         </div>
       </div>

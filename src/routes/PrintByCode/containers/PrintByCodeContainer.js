@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { } from '../modules/printByCode'
+import { printByBaracode } from '../modules/printByCode'
 
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for
@@ -13,7 +13,7 @@ import PrintByCode from '../components/PrintByCode'
     implementing our wrapper around increment; the component doesn't care   */
 
 const mapDispatchToProps = {
-
+  printByBaracode
 }
 
 const mapStateToProps = (state) => ({

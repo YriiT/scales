@@ -16,7 +16,7 @@ export class PrintByCode extends React.Component {
     this.setState({ nums: '' })
   }
   _handleButtonEnter() {
-    alert(`Товар ${this.state.nums} найден!!!`)
+    this.props.printByBaracode(this.state.nums)
     this.setState({ nums: '' })
   }
   handleButtonClick = (num) => {
@@ -48,7 +48,7 @@ export class PrintByCode extends React.Component {
             {this.state.nums}
           </div>
           <div className='button_enter' onClick={this._handleButtonEnter}>
-            <img src={enter} alt='delete button' />
+            <img src={enter} alt='enter button' />
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@ export class PrintByCode extends React.Component {
   }
 }
 PrintByCode.propTypes = {
-
+  printByBaracode: PropTypes.func,
 }
 
 export default PrintByCode

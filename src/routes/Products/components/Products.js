@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { ProductsView } from 'components'
 
-
 export class Products extends React.Component {
 
   render() {
@@ -57,7 +56,7 @@ export class Products extends React.Component {
   }
 }
 Products.propTypes = {
-
+  params: PropTypes.object.isRequired
 }
 
 export default Products

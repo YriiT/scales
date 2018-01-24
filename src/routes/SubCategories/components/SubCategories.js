@@ -2,8 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { ProductsView } from 'components'
 
-export class SubCategories extends React.Component {
-
+class SubCategories extends React.Component {
   render() {
     const { params } = this.props
     const subCategorylArray = [

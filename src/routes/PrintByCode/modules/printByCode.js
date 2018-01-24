@@ -1,16 +1,27 @@
+import { urls, methods } from 'utils'
 // ------------------------------------
 // Constants
 // ------------------------------------
-export const COUNTER_INCREMENT = 'COUNTER_INCREMENT'
-export const COUNTER_DOUBLE_ASYNC = 'COUNTER_DOUBLE_ASYNC'
+
 
 // ------------------------------------
 // Actions
 // ------------------------------------
-export function increment(value = 1) {
-  return {
-    type: COUNTER_INCREMENT,
-    payload: value
+console.log('---', methods.defaultSettings, urls.printBarcode)
+export const printByBaracode = product_id => {
+  return (dispatch) => {
+    return new Promise((resolve, reject) => {
+      fetch('http://127.0.0.1:5000/test', {
+        method: 'POST',
+        body: JSON.stringify({ product_id: 222 }),
+        ...methods.defaultSettings
+      })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data)
+        })
+        .catch(err => console.log(err))
+    })
   }
 }
 
@@ -18,31 +29,14 @@ export function increment(value = 1) {
     returns a function for lazy evaluation. It is incredibly useful for
     creating async actions, especially when combined with redux-thunk! */
 
-export const doubleAsync = () => {
-  return (dispatch, getState) => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        dispatch({
-          type: COUNTER_DOUBLE_ASYNC,
-          payload: getState().counter
-        })
-        resolve()
-      }, 200)
-    })
-  }
-}
-
 export const actions = {
-  increment,
-  doubleAsync
+  printByBaracode
 }
 
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [COUNTER_INCREMENT]: (state, action) => state + action.payload,
-  [COUNTER_DOUBLE_ASYNC]: (state, action) => state * 2
 }
 
 // ------------------------------------
