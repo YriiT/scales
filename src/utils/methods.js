@@ -1,5 +1,5 @@
 export const defaultSettings = {
-  // mode: 'cors',
+  mode: 'cors',
   headers: {
     'Content-Type': 'application/json; charset=utf-8'
   }
