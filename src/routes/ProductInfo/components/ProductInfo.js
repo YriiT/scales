@@ -2,15 +2,24 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { ProductsView, Icons } from 'components'
 import './ProductInfo.scss'
+import { printBarcode } from '../../../utils/urls';
 
 export class ProductInfo extends React.Component {
+  componentDidMount() {
+    const { getProductById, location: { search } } = this.props
+    getProductById(search)
+  }
+  componentWillUnmount() {
+    const { clearProductInfo } = this.props
+    clearProductInfo()
+  }
   render() {
-    const { params } = this.props
+    const { productInfo, printByBaracode } = this.props
     return (
       <div className='info_container'>
         <div className='info_left'>
           <div className='left_img'>
-            <img src='/img/88.png' />
+            <img src={productInfo && `data:image/png;base64,${productInfo.image_base64}`} />
           </div>
           <div className='description'>
             <div className='description_row'>
@@ -19,7 +28,7 @@ export class ProductInfo extends React.Component {
                   Product name
                 </div>
                 <div className='description_content'>
-                  Jonagored
+                  {productInfo && productInfo.short_name}
                 </div>
                 <div className='description_header'>
                   Country of origin
@@ -80,7 +89,7 @@ export class ProductInfo extends React.Component {
                   A green-skinned grape variety used in the production of white wine.
                 The variety originated in the Burgundy wine region of eastern France,
                 but is now grown wherever wine is produced, from England to New Zealand.
-								</div>
+                </div>
                 <div className='info_right_subtitle price'> € 13.50</div>
                 <div className='info_right_text'>Bottle 750ml</div>
               </div>
@@ -90,8 +99,8 @@ export class ProductInfo extends React.Component {
             </div>
           </div>
           <div className='info_right_footer'>
-            <div className='info_print'>
-              <Icons showTitle icon='print' label='Print the promotional price tag for the item' />
+            <div className='info_print' onClick={() => printByBaracode(productInfo.product_id)}>
+              <Icons showTitle icon='print' label='Print price tag' />
             </div>
             <div className='info_where_in_shop'>
               <Icons showTitle icon='find' label='Where to find in the shop' />
@@ -99,8 +108,6 @@ export class ProductInfo extends React.Component {
           </div>
         </div>
       </div >
-
-
     )
   }
 }

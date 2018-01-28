@@ -9,7 +9,7 @@ class ProductsView extends React.Component {
     const { imgArray, productType, headerArray, headerType, linkTo } = this.props
     return (
       <div className='products_content'>
-        <Header headerArray={headerArray} headerType={headerType} productType={productType} />
+        {/* <Header headerArray={headerArray} headerType={headerType} productType={productType} /> */}
         <PicturesView imgArray={imgArray} linkTo={linkTo} />
         <div className='products_futer'>
           <div className='prev'>

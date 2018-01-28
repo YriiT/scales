@@ -4,46 +4,21 @@ import { PicturesView } from 'components'
 
 export class Categories extends React.Component {
   componentDidMount() {
-    const { getCategoryNames, getCategoryProduct } = this.props
-    getCategoryProduct()
+    const { getCategoryNames } = this.props
     getCategoryNames()
   }
-  render() {
-    const categoryArray = [
-      {
-        key: 'Berries',
-        value: '/img/berries.jpg'
-      },
-      {
-        key: 'Exotic',
-        value: '/img/exotic.jpg'
-      },
-      {
-        key: 'Fruits',
-        value: '/img/fruits.png'
-      },
-      {
-        key: 'Nuts',
-        value: '/img/nuts.jpg'
-      },
-      // {
-      //   key: 'Salads',
-      //   value: '/img/salads.png'
-      // },
-      // {
-      //   key: 'Vegetables',
-      //   value: '/img/vegetables.jpg'
-      // }
-    ]
 
+  render() {
+    const { categoryNames } = this.props
     return (
-      <PicturesView imgArray={categoryArray}
-        linkTo='sub-categories' />
+      <PicturesView imgArray={categoryNames}
+        linkTo='products' />
     )
   }
 }
 Categories.propTypes = {
-
+  categoryNames: PropTypes.array,
+  getCategoryNames: PropTypes.func,
 }
 
 export default Categories

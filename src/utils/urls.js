@@ -14,5 +14,5 @@ export const productNames = `${serverAdress}/product_names`
 export const printBarcode = `${serverAdress}/print_barcode`
 export const productImage = `${serverAdress}/product_image`
 export const productPrice = `${serverAdress}/product_price`
-export const categoryNames = `${serverAdress}/category_names`
-export const categoryProduct = `${serverAdress}/category_product`
+export const categoryNames = `${serverAdress}/category_list`
+export const productList = `${serverAdress}/product_list`

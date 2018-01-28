@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { } from '../modules/productInfo'
+import { getProductById, printByBaracode, clearProductInfo } from '../modules/productInfo'
 
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for
@@ -13,12 +13,16 @@ import ProductInfo from '../components/ProductInfo'
     implementing our wrapper around increment; the component doesn't care   */
 
 const mapDispatchToProps = {
-
+  getProductById,
+  printByBaracode,
+  clearProductInfo
 }
 
-const mapStateToProps = (state) => ({
-
-})
+const mapStateToProps = (state) => {
+  return ({
+    productInfo: state['product-info'].productInfo[0]
+  })
+}
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:
 

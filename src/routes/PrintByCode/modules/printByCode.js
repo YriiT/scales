@@ -7,11 +7,11 @@ import { urls, methods } from 'utils'
 // ------------------------------------
 // Actions
 // ------------------------------------
-console.log('---', methods.defaultSettings, urls.printBarcode)
+
 export const printByBaracode = product_id => {
   return (dispatch) => {
     return new Promise((resolve, reject) => {
-      fetch('http://127.0.0.1:5000/test', {
+      fetch(urls.printBarcode, {
         method: 'POST',
         body: JSON.stringify({ product_id: 222 }),
         ...methods.defaultSettings

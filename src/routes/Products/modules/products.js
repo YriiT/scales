@@ -1,54 +1,41 @@
+import { urls, methods } from 'utils'
+
 // ------------------------------------
 // Constants
 // ------------------------------------
-export const COUNTER_INCREMENT = 'COUNTER_INCREMENT'
-export const COUNTER_DOUBLE_ASYNC = 'COUNTER_DOUBLE_ASYNC'
-
+export const GET_PRODUCTS = 'GET_PRODUCTS'
 // ------------------------------------
 // Actions
 // ------------------------------------
-export function increment(value = 1) {
+const receiveProduct = products => {
   return {
-    type: COUNTER_INCREMENT,
-    payload: value
+    type: GET_PRODUCTS,
+    products
   }
 }
 
 /*  This is a thunk, meaning it is a function that immediately
     returns a function for lazy evaluation. It is incredibly useful for
     creating async actions, especially when combined with redux-thunk! */
-
-export const doubleAsync = () => {
-  return (dispatch, getState) => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        dispatch({
-          type: COUNTER_DOUBLE_ASYNC,
-          payload: getState().counter
-        })
-        resolve()
-      }, 200)
-    })
-  }
-}
+export const getProducts = () => methods.mainGet(urls.productList, receiveProduct)
 
 export const actions = {
-  increment,
-  doubleAsync
+  getProducts
 }
 
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [COUNTER_INCREMENT]: (state, action) => state + action.payload,
-  [COUNTER_DOUBLE_ASYNC]: (state, action) => state * 2
+  [GET_PRODUCTS]: (state, action) => ({ ...state, products: action.products.data })
 }
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
-const initialState = 0
+const initialState = {
+  products: []
+}
 export default function productsReducer(state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
 

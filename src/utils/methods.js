@@ -29,7 +29,7 @@ export const mainPost = (url, data, getAfterPost) => {
         body: JSON.stringify({ data }),
         ...defaultSettings
       })
-        .then(() => dispatch(getAfterPost()))
+        //.then(() => getAfterPost())
         .catch(err => dispatch(console.log(err)))
     })
   }

@@ -1,54 +1,68 @@
+import { urls, methods } from 'utils'
+import { mainPost } from '../../../utils/methods';
 // ------------------------------------
 // Constants
 // ------------------------------------
-export const COUNTER_INCREMENT = 'COUNTER_INCREMENT'
-export const COUNTER_DOUBLE_ASYNC = 'COUNTER_DOUBLE_ASYNC'
-
+const GET_PRODUCT_BY_ID = 'GET_PRODUCT_BY_ID'
+const CLEAR_PRODUCT_INFO = 'CLEAR_PRODUCT_INFO'
 // ------------------------------------
 // Actions
 // ------------------------------------
-export function increment(value = 1) {
-  return {
-    type: COUNTER_INCREMENT,
-    payload: value
-  }
-}
+const reciveProductById = productInfo => ({
+  type: GET_PRODUCT_BY_ID,
+  productInfo
+})
+export const clearProductInfo = () => ({
+  type: CLEAR_PRODUCT_INFO
+})
 
 /*  This is a thunk, meaning it is a function that immediately
     returns a function for lazy evaluation. It is incredibly useful for
     creating async actions, especially when combined with redux-thunk! */
 
-export const doubleAsync = () => {
-  return (dispatch, getState) => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        dispatch({
-          type: COUNTER_DOUBLE_ASYNC,
-          payload: getState().counter
-        })
-        resolve()
-      }, 200)
-    })
-  }
-}
+export const getProductById = productId =>
+  methods.mainGet(`${urls.productList}${productId}`, reciveProductById)
 
+export const printByBaracode = (productId) =>
+  mainPost(
+    urls.printBarcode,
+    { product_id: productId }
+  )
+
+// export const printByBaracode = product_id => {
+//   return (dispatch) => {
+//     return new Promise((resolve, reject) => {
+//       fetch(urls.printBarcode, {
+//         method: 'POST',
+//         body: JSON.stringify({ product_id: 222 }),
+//         ...methods.defaultSettings
+//       })
+//         .then(res => res.json())
+//         .then(data => {
+//           console.log(data)
+//         })
+//         .catch(err => console.log(err))
+//     })
+//   }
+// }
 export const actions = {
-  increment,
-  doubleAsync
+  getProductById
 }
 
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [COUNTER_INCREMENT]: (state, action) => state + action.payload,
-  [COUNTER_DOUBLE_ASYNC]: (state, action) => state * 2
+  [GET_PRODUCT_BY_ID]: (state, action) => ({ ...state, productInfo: action.productInfo.data }),
+  [CLEAR_PRODUCT_INFO]: state => ({ ...state, productInfo: {} })
 }
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
-const initialState = 0
+const initialState = {
+  productInfo: []
+}
 export default function productInfoReducer(state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
 
