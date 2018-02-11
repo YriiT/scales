@@ -12,18 +12,10 @@ export class Products extends React.Component {
     clearProductArray()
   }
   render() {
-    const { params, products } = this.props
-
-    // const headerArray = [
-    //   { key: 1, value: 'Fruits', link: 'sub-categories/Fruits' },
-    //   { key: 2, value: params.id, link: '' },
-    // ]
+    const { products } = this.props
     return (
       <ProductsView
-        productType={params.id}
         imgArray={products}
-        headerType='products_header'
-        // headerArray={headerArray}
         linkTo='product-info'
       />
     )
@@ -31,6 +23,7 @@ export class Products extends React.Component {
 }
 Products.propTypes = {
   params: PropTypes.object.isRequired,
+  getProducts: PropTypes.func,
   products: PropTypes.array,
   clearProductArray: PropTypes.func,
 }

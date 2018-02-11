@@ -6,11 +6,11 @@ import './ProductsView.scss'
 
 class ProductsView extends React.Component {
   render() {
-    const { imgArray, productType, headerArray, headerType, linkTo } = this.props
+    const { imgArray, linkTo } = this.props
     return (
       <div className='products_content'>
-        {/* <Header headerArray={headerArray} headerType={headerType} productType={productType} /> */}
         <PicturesView imgArray={imgArray} linkTo={linkTo} />
+
         <div className='products_futer'>
           <div className='prev'>
             <Icons icon='prev' />

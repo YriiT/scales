@@ -1,45 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { ProductsView } from 'components'
-
+import { PicturesView } from 'components'
 
 export class ProductOnScales extends React.Component {
-
+  componentDidMount() {
+    const { getProductOnScale } = this.props
+    getProductOnScale()
+  }
+  componentWillUnmount() {
+    const { clearProductsOnScale } = this.props
+    clearProductsOnScale()
+  }
   render() {
-    const { params } = this.props
-    let onScaleslArray = []
-    for (let i = 0; i < 8; i++) {
-      if (i % 2 == 0) {
-        onScaleslArray.push({
-          key: 'Jonagored',
-          value: '/img/red-apple.jpg',
-          match: '99% of the match'
-        })
-      } else {
-        onScaleslArray.push({
-          key: 'Granny Smith',
-          value: '/img/green-apple.jpg',
-          match: '85% of the match'
-        })
-      }
-    }
-    const headerArray = [
-      { key: 1, value: 'The most likely options', link: '' },
-      { key: 2, value: 'Select manually', link: 'sub-categories/all' },
-    ]
+    const { productsOnScales } = this.props
     return (
-      <ProductsView
-        productType={params.id}
-        imgArray={onScaleslArray}
-        headerType='product_on_scales'
-        headerArray={headerArray}
-        linkTo='product-info'
-      />
+      <PicturesView imgArray={productsOnScales} linkTo='product-info' />
     )
   }
 }
 ProductOnScales.propTypes = {
-
+  getProductOnScale: PropTypes.func,
+  productsOnScales: PropTypes.array,
 }
 
 export default ProductOnScales
