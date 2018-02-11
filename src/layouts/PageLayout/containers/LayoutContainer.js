@@ -2,7 +2,8 @@ import { connect } from 'react-redux'
 import {
   showSideBarTitle,
   hideSideBarTitle,
-  getWeight
+  getWeight,
+  getPrice
 } from '../modules/layout'
 
 import PageLayout from '../components/PageLayout'
@@ -10,7 +11,8 @@ import PageLayout from '../components/PageLayout'
 const mapDispatchToProps = {
   showSideBarTitle,
   hideSideBarTitle,
-  getWeight
+  getWeight,
+  getPrice
 }
 
 const mapStateToProps = (state) => {
@@ -20,6 +22,7 @@ const mapStateToProps = (state) => {
     showTitle: state['global'].showTitle,
     logotip: state['global'].logotip,
     weight: state['global'].weight,
+    price: state['global'].price.price_per_kg,
   })
 }
 

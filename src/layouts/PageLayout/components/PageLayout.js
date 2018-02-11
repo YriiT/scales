@@ -15,7 +15,8 @@ class PageLayout extends React.Component {
   }
 
   render() {
-    const { children, router, leftWidth, rightWidth, showTitle, getWeight, weight, logotip } = this.props
+    const { children, router, leftWidth, rightWidth, showTitle, getWeight, getPrice,
+      weight, price, logotip, location: { search } } = this.props
     return (
       <div className='container'>
         <div style={{ width: leftWidth }} id='left' className='column'>
@@ -27,8 +28,13 @@ class PageLayout extends React.Component {
           </div>
         </div>
         <div style={{ width: rightWidth }} id='right' className='column' >
-          <Header getWeight={getWeight}
-            weight={weight} />
+          <Header
+            getWeight={getWeight}
+            weight={weight}
+            getPrice={getPrice}
+            search={search}
+            price={price}
+          />
           <div className='bottom'>
             {children}
           </div>
@@ -43,13 +49,15 @@ PageLayout.propTypes = {
   router: PropTypes.object,
   showSideBarTitle: PropTypes.func,
   hideSideBarTitle: PropTypes.func,
+  getWeight: PropTypes.func,
+  getPrice: PropTypes.func,
   leftWidth: PropTypes.string,
   rightWidth: PropTypes.string,
   showTitle: PropTypes.bool,
-  getWeight: PropTypes.func,
   weight: PropTypes.number,
   logotip: PropTypes.string,
-  location: PropTypes.object
+  location: PropTypes.object,
+  price: PropTypes.number,
 }
 
 export default PageLayout

@@ -3,8 +3,13 @@ import PropTypes from 'prop-types'
 import { ProductsView } from 'components'
 
 export class Products extends React.Component {
-  componentDidMount() {
-    this.props.getProducts()
+  componentWillMount() {
+    const { params: { id }, getProducts } = this.props
+    getProducts(id)
+  }
+  componentWillUnmount() {
+    const { clearProductArray } = this.props
+    clearProductArray()
   }
   render() {
     const { params, products } = this.props
@@ -25,7 +30,9 @@ export class Products extends React.Component {
   }
 }
 Products.propTypes = {
-  params: PropTypes.object.isRequired
+  params: PropTypes.object.isRequired,
+  products: PropTypes.array,
+  clearProductArray: PropTypes.func,
 }
 
 export default Products

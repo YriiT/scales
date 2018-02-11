@@ -5,7 +5,7 @@ export const defaultSettings = {
   }
 }
 
-export const mainGet = (url, actionType) => {
+export const mainGet = (url, actionType, query) => {
   return (dispatch) => {
     return new Promise(resolve => {
       fetch(url, {
@@ -13,9 +13,7 @@ export const mainGet = (url, actionType) => {
         ...defaultSettings
       })
         .then(res => res.json())
-        .then(data => {
-          dispatch(actionType(data))
-        })
+        .then(data => dispatch(actionType(data)))
         .catch(error => console.log(error))
     })
   }

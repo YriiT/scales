@@ -20,7 +20,8 @@ const mapDispatchToProps = {
 
 const mapStateToProps = (state) => {
   return ({
-    productInfo: state['product-info'].productInfo[0]
+    price: state['global'].price.price_per_kg,
+    productInfo: state['product-info'].productInfo
   })
 }
 

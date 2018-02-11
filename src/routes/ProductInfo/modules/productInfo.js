@@ -20,8 +20,8 @@ export const clearProductInfo = () => ({
     returns a function for lazy evaluation. It is incredibly useful for
     creating async actions, especially when combined with redux-thunk! */
 
-export const getProductById = productId =>
-  methods.mainGet(`${urls.productList}${productId}`, reciveProductById)
+export const getProductById = query =>
+  methods.mainGet(`${urls.productInfo}${query}`, reciveProductById)
 
 // export const printByBaracode = (productId) =>
 //   mainPost(
@@ -30,7 +30,6 @@ export const getProductById = productId =>
 //   )
 
 export const printByBaracode = id => {
-  console.log(id)
   return (dispatch) => {
     return new Promise((resolve, reject) => {
       fetch(urls.printBarcode, {

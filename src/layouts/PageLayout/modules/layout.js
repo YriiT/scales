@@ -4,6 +4,7 @@ import { logo, shLogo } from '../assets'
 const SHOW_SIDEBAR_TITLE = 'SHOW_SIDEBAR_TITLE'
 const HIDE_SIDEBAR_TITLE = 'HIDE_SIDEBAR_TITLE'
 const GET_WEIGHT = 'GET_WEIGHT'
+const GET_PRICE = 'GET_PRICE'
 
 export const showSideBarTitle = () => ({
   type: SHOW_SIDEBAR_TITLE
@@ -20,9 +21,13 @@ const receiveWeight = weight => ({
   type: GET_WEIGHT,
   weight
 })
-
+const receivePrice = price => ({
+  type: GET_PRICE,
+  price
+}
+)
 export const getWeight = () => methods.mainGet(urls.currentWeight, receiveWeight)
-
+export const getPrice = (query) => methods.mainGet(`${urls.productPrice}${query}`, receivePrice)
 
 const ACTION_HANDLERS = {
   [SHOW_SIDEBAR_TITLE]: (state, action) => (
@@ -31,7 +36,8 @@ const ACTION_HANDLERS = {
   [HIDE_SIDEBAR_TITLE]: (state, action) => (
     { ...state, leftWidth: '10%', rightWidth: '90%', showTitle: false, logotip: shLogo }
   ),
-  [GET_WEIGHT]: (state, action) => ({ ...state, weight: action.weight.data.weight })
+  [GET_WEIGHT]: (state, action) => ({ ...state, weight: action.weight.data.weight }),
+  [GET_PRICE]: (state, action) => ({ ...state, price: action.price.data })
 }
 
 const initialState = {
@@ -39,7 +45,11 @@ const initialState = {
   leftWidth: '20%',
   rightWidth: '80%',
   showTitle: true,
-  weight: 0
+  weight: 0,
+  price: {
+    price_per_kg: 0,
+    price_per_unit: 0,
+  }
 }
 
 export default function LayoutReducer(state = initialState, action) {

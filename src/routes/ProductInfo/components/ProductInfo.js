@@ -14,12 +14,16 @@ export class ProductInfo extends React.Component {
     clearProductInfo()
   }
   render() {
-    const { productInfo, printByBaracode } = this.props
+    const {
+      productInfo: { image_base64, short_name, calories, carbons, fat, protein },
+      printByBaracode, price
+    } = this.props
+
     return (
       <div className='info_container'>
         <div className='info_left'>
           <div className='left_img'>
-            <img src={productInfo && `data:image/png;base64,${productInfo.image_base64}`} />
+            <img src={image_base64 && `data:image/png;base64,${image_base64}`} />
           </div>
           <div className='description'>
             <div className='description_row'>
@@ -28,7 +32,7 @@ export class ProductInfo extends React.Component {
                   Product name
                 </div>
                 <div className='description_content'>
-                  {productInfo && productInfo.short_name}
+                  {short_name && short_name}
                 </div>
                 <div className='description_header'>
                   Country of origin
@@ -42,7 +46,7 @@ export class ProductInfo extends React.Component {
                   Price
                 </div>
                 <div className='description_content'>
-                  € 0,57
+                  {price}
                 </div>
               </div>
             </div>
@@ -56,6 +60,9 @@ export class ProductInfo extends React.Component {
                   Cals
                 </div>
                 <div className='nutrition_content left'>
+                  Proteins
+                </div>
+                <div className='nutrition_content left'>
                   Carb
                 </div>
                 <div className='nutrition_content left'>
@@ -64,13 +71,16 @@ export class ProductInfo extends React.Component {
               </div>
               <div className='right_description_col'>
                 <div className='nutrition_content right'>
-                  100
+                  {calories}
                 </div>
                 <div className='nutrition_content right'>
-                  200
+                  {protein}
                 </div>
                 <div className='nutrition_content right'>
-                  0.005
+                  {carbons}
+                </div>
+                <div className='nutrition_content right'>
+                  {fat}
                 </div>
               </div>
             </div>

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { getProducts } from '../modules/products'
+import { getProducts, clearProductArray } from '../modules/products'
 
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for
@@ -13,7 +13,7 @@ import Products from '../components/Products'
     implementing our wrapper around increment; the component doesn't care   */
 
 const mapDispatchToProps = {
-  getProducts
+  getProducts, clearProductArray
 }
 
 const mapStateToProps = (state) => ({

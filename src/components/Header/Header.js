@@ -1,27 +1,34 @@
 import React from 'react'
 import './Header.scss'
 
-class Header extends React.Component {
+class Header extends React.PureComponent {
   componentDidMount() {
     const { getWeight } = this.props
-    setInterval(() => getWeight(), 30000)
+    setInterval(() => getWeight(), 300)
+    // getPrice()
   }
-
+  componentWillReceiveProps(nextProps) {
+    const { getPrice, search, weight } = this.props
+    if (weight !== nextProps.weight) {
+      getPrice(search)
+    }
+  }
   render() {
+    const { weight, price } = this.props
     return (
       <div className='top-right'>
         <div className='col'>
           <div className='desc'>Weight [kg]</div>
           <div className='val'>
-            {this.props.weight ? this.props.weight : ''}</div>
+            {weight || ''}</div>
         </div>
         <div className='col'>
           <div className='desc'>Price [EUR / kg]</div>
-          <div className='val'>€3.00</div>
+          <div className='val'>{price}</div>
         </div>
         <div className='col'>
           <div className='desc'>Sum [EUR]</div>
-          <div className='val'>€36.60</div>
+          <div className='val'>{weight && (price * weight).toFixed(2)}</div>
         </div>
       </div>
     )

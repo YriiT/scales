@@ -3,7 +3,8 @@ import { urls, methods } from 'utils'
 // ------------------------------------
 // Constants
 // ------------------------------------
-export const GET_PRODUCTS = 'GET_PRODUCTS'
+const GET_PRODUCTS = 'GET_PRODUCTS'
+const CLEAR_PRODUCTS = 'CLEAR_PRODUCTS'
 // ------------------------------------
 // Actions
 // ------------------------------------
@@ -17,8 +18,11 @@ const receiveProduct = products => {
 /*  This is a thunk, meaning it is a function that immediately
     returns a function for lazy evaluation. It is incredibly useful for
     creating async actions, especially when combined with redux-thunk! */
-export const getProducts = () => methods.mainGet(urls.productList, receiveProduct)
-
+export const getProducts = (categoryId) => (
+  methods.mainGet(`${urls.productList}?category_id=${categoryId}`, receiveProduct)
+)
+export const clearProductArray = () =>
+  ({ type: CLEAR_PRODUCTS })
 export const actions = {
   getProducts
 }
@@ -27,7 +31,8 @@ export const actions = {
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [GET_PRODUCTS]: (state, action) => ({ ...state, products: action.products.data })
+  [GET_PRODUCTS]: (state, action) => ({ ...state, products: action.products.data }),
+  [CLEAR_PRODUCTS]: state => ({ products: [] })
 }
 
 // ------------------------------------
