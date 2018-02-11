@@ -2,7 +2,7 @@
 const local = ''
 const external = 'http://namezis.com'
 
-const serverAdress = local
+const serverAdress = external
 export const currentWeight = `${serverAdress}/api/current_weight`
 export const userAction = `${serverAdress}/api/user_action`
 export const productNames = `${serverAdress}/api/product_names`

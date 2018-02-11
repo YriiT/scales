@@ -5,7 +5,7 @@ export const defaultSettings = {
   }
 }
 
-export const mainGet = (url, actionType, query) => {
+export const mainGet = (url, actionType) => {
   return (dispatch) => {
     return new Promise(resolve => {
       fetch(url, {

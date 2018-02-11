@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { ProductsView, Icons } from 'components'
+import { Icons } from 'components'
 import './ProductInfo.scss'
-import { printBarcode } from '../../../utils/urls';
 
 export class ProductInfo extends React.Component {
   componentDidMount() {
@@ -15,7 +14,7 @@ export class ProductInfo extends React.Component {
   }
   render() {
     const {
-      productInfo: { image_base64, short_name, calories, carbons, fat, protein },
+      productInfo: { product_id, image_base64, short_name, calories, carbons, fat, protein },
       printByBaracode, price
     } = this.props
 
@@ -109,7 +108,7 @@ export class ProductInfo extends React.Component {
             </div>
           </div>
           <div className='info_right_footer'>
-            <div className='info_print' onClick={() => printByBaracode(productInfo.product_id)}>
+            <div className='info_print' onClick={() => printByBaracode(product_id)}>
               <Icons showTitle icon='print' label='Print price tag' />
             </div>
             <div className='info_where_in_shop'>
@@ -122,7 +121,11 @@ export class ProductInfo extends React.Component {
   }
 }
 ProductInfo.propTypes = {
-
+  getProductById: PropTypes.func,
+  location: PropTypes.object,
+  clearProductInfo: PropTypes.func,
+  printByBaracode: PropTypes.func,
+  price: PropTypes.number,
 }
 
 export default ProductInfo

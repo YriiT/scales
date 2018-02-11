@@ -17,6 +17,7 @@ const reciveProductOnScale = (productsOnScales) => ({
 })
 
 export const getProductOnScale = () => {
+  console.log('getProductOnScale')
   return (dispatch) => {
     return new Promise(resolve => {
       fetch(urls.productOnScale, {
@@ -27,8 +28,10 @@ export const getProductOnScale = () => {
         .then(data => {
           if (data.data.length > 1) {
             dispatch(reciveProductOnScale(data.data))
+          } else if (data.data.length === 0) {
+            clearProductsOnScale()
           } else {
-            dispatch(browserHistory.push(`/product-info/wizard?product_id=${data.data[0].product_id}`))
+            browserHistory.push(`/product-info/wizard?product_id=${data.data[0].product_id}`)
           }
         })
         .catch(error => console.log(error))

@@ -5,7 +5,6 @@ class Header extends React.PureComponent {
   componentDidMount() {
     const { getWeight } = this.props
     setInterval(() => getWeight(), 300)
-    // getPrice()
   }
   componentWillReceiveProps(nextProps) {
     const { getPrice, search, weight } = this.props
