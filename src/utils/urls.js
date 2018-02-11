@@ -1,5 +1,5 @@
 
-const local = 'localhost'
+const local = ''
 const external = 'http://namezis.com/api'
 
 const serverAdress = local
