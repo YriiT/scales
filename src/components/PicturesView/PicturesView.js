@@ -5,10 +5,10 @@ import './PicturesView.scss'
 
 class PicturesView extends React.Component {
   render() {
-    const { imgArray, linkTo } = this.props
+    const { imgArray, linkTo, isSearch } = this.props
     let imgWidth = ''
     if (imgArray) {
-      imgWidth = `${(imgArray.length % 2 === 0 ? 200 : 100) / imgArray.length}%`
+      imgWidth = `${(imgArray.length && isSearch ? 100 : 200) / imgArray.length}%`
     }
     return (
       <div className='content'>

@@ -41,7 +41,7 @@ export class SearchByName extends React.Component {
           {letters}
         </div>
         <div className='search_resalt'>
-          <PicturesView imgArray={searchResult} linkTo='product-info' picturesCount={5} />
+          <PicturesView imgArray={searchResult} linkTo='product-info' isSearch />
         </div>
         <RusKeyboard
           onDeleteButtonClick={this._handleButtonDelete}
