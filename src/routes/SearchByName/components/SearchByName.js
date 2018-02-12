@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { PicturesView } from 'components'
-import del from '../assets/del.svg'
-import enter from '../assets/enter.svg'
+import { firstRowArray, secondRowArray, del, enter } from '../assets'
 import './SearchByName.scss'
 
 export class SearchByName extends React.Component {
@@ -10,8 +9,7 @@ export class SearchByName extends React.Component {
     super(props)
     this.state = {
       letters: '',
-      shiftActiv: false,
-      resultArray: []
+      shiftActiv: false
     }
     this._handleButtonDelete = this._handleButtonDelete.bind(this)
     this._handleButtonEnter = this._handleButtonEnter.bind(this)
@@ -21,43 +19,19 @@ export class SearchByName extends React.Component {
     this.setState({ letters: '' })
   }
   _handleButtonEnter() {
-    const categoryArray = [
-      {
-        key: 'Berries',
-        value: '/img/berries.jpg'
-      },
-      {
-        key: 'Fruits',
-        value: '/img/fruits.png'
-      },
-      {
-        key: 'Exotic',
-        value: '/img/exotic.jpg'
-      },
-      {
-        key: 'Nuts',
-        value: '/img/nuts.jpg'
-      }
-    ]
-    const filterByKey = (obj) => {
-      return 'key' in obj && obj.key === this.state.letters
-    }
-    this.setState({ resultArray: categoryArray.filter(filterByKey) })
-    this.setState({ letters: '' })
+    this.props.getSearchResult(this.state.letters)
   }
   _handleButtonShiftClick() {
-    this.state.shiftActiv ? this.setState({ shiftActiv: false }) : this.setState({ shiftActiv: true })
+    const { shiftActiv } = this.state
+    shiftActiv ? this.setState({ shiftActiv: false }) : this.setState({ shiftActiv: true })
   }
   handleButtonClick = (num) => {
-    if (this.state.shiftActiv) {
-      this.setState({ letters: this.state.letters + num.toUpperCase() })
-    } else {
-      this.setState({ letters: this.state.letters + num })
-    }
+    const { shiftActiv, letters } = this.state
+    shiftActiv ? this.setState({ letters: letters + num.toUpperCase() })
+      : this.setState({ letters: letters + num })
   }
   render() {
-    const firstRowArray = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l']
-    const secondRowArray = ['z', 'x', 'c', 'v', 'b', 'n', 'm']
+    const { searchResult } = this.props
     const { shiftActiv, letters } = this.state
 
     return (
@@ -66,7 +40,7 @@ export class SearchByName extends React.Component {
           {letters}
         </div>
         <div className='search_resalt'>
-          <PicturesView imgArray={this.state.resultArray} linkTo='' />
+          <PicturesView imgArray={searchResult} linkTo='product-info' />
         </div>
         <div className='search_footer'>
           <div className='footer_first_row'>
@@ -103,12 +77,8 @@ export class SearchByName extends React.Component {
   }
 }
 SearchByName.propTypes = {
-
+  searchResult: PropTypes.array,
+  getSearchResult: PropTypes.func,
 }
 
 export default SearchByName
-
-// buttonArray.map((item, idx) =>
-//   <div key={idx} className='button_row' onClick={() => this.handleButtonClick(item)}>
-//     {item}
-//   </div>

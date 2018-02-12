@@ -27,6 +27,8 @@ export class ProductOnScales extends React.PureComponent {
 ProductOnScales.propTypes = {
   getProductOnScale: PropTypes.func,
   productsOnScales: PropTypes.array,
+  location: PropTypes.object,
+  clearProductsOnScale: PropTypes.func,
 }
 
 export default ProductOnScales

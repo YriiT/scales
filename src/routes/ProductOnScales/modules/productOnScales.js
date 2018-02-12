@@ -17,7 +17,6 @@ const reciveProductOnScale = (productsOnScales) => ({
 })
 
 export const getProductOnScale = () => {
-  console.log('getProductOnScale')
   return (dispatch) => {
     return new Promise(resolve => {
       fetch(urls.productOnScale, {

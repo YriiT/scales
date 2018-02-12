@@ -1,5 +1,5 @@
 import { urls, methods } from 'utils'
-import { mainPost } from '../../../utils/methods';
+
 // ------------------------------------
 // Constants
 // ------------------------------------
@@ -23,12 +23,6 @@ export const clearProductInfo = () => ({
 export const getProductById = query =>
   methods.mainGet(`${urls.productInfo}${query}`, reciveProductById)
 
-// export const printByBaracode = (productId) =>
-//   mainPost(
-//     urls.printBarcode,
-//     { product_id: productId }
-//   )
-
 export const printByBaracode = id => {
   return (dispatch) => {
     return new Promise((resolve, reject) => {
@@ -37,10 +31,6 @@ export const printByBaracode = id => {
         body: JSON.stringify({ 'product_id': id }),
         ...methods.defaultSettings
       })
-        .then(res => res.json())
-        .then(data => {
-          console.log(data)
-        })
         .catch(err => console.log(err))
     })
   }
