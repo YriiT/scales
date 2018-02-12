@@ -13,3 +13,4 @@ export const categoryNames = `${serverAdress}/api/category_list`
 export const productList = `${serverAdress}/api/product_list`
 export const productInfo = `${serverAdress}/api/product_info`
 export const productOnScale = `${serverAdress}/api/product_on_scale`
+export const searchByName = `${serverAdress}/api/search_by_name`

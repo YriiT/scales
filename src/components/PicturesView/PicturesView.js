@@ -1,15 +1,14 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router'
 import './PicturesView.scss'
-
 
 class PicturesView extends React.Component {
   render() {
     const { imgArray, linkTo } = this.props
-    //imgArray && imgArray.map((item, idx) => (console.log('item, idx', item, idx)))
     let imgWidth = ''
     if (imgArray) {
-      imgWidth = `${200 / imgArray.length}%`
+      imgWidth = `${(imgArray.length % 2 === 0 ? 200 : 100) / imgArray.length}%`
     }
     return (
       <div className='content'>
@@ -34,5 +33,8 @@ class PicturesView extends React.Component {
     )
   }
 }
-
+PicturesView.propTypes = {
+  imgArray: PropTypes.array,
+  linkTo: PropTypes.string,
+}
 export default PicturesView

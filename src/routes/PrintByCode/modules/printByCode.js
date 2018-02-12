@@ -15,10 +15,6 @@ export const printByBaracode = product_id => {
         body: JSON.stringify({ product_id }),
         ...methods.defaultSettings
       })
-        // .then(res => res.json())
-        // .then(data => {
-        //   console.log(data)
-        // })
         .catch(err => console.log(err))
     })
   }

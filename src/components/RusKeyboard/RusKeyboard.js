@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { firstRowArray, secondRowArray, del, enter } from './assets'
-import './Keyboard.scss'
+import { firstRowArray, secondRowArray, del, enter, shift } from './assets'
+import './RusKeyboard.scss'
 
-export const Keyboard = (props) => {
+export const RusKeyboard = (props) => {
   const { onDeleteButtonClick, onEnterButtonClick, onShiftButtonClick, onLetterButtonClick, shiftActiv } = props
   return (
     <div className='search_footer'>
@@ -14,7 +14,7 @@ export const Keyboard = (props) => {
               {shiftActiv ? item.toUpperCase() : item}
             </div>
           )}
-          <div className='search_button_del' onClick={onDeleteButtonClick}>
+          <div className='search_button_row' onClick={onDeleteButtonClick}>
             <img src={del} alt='delete button' />
           </div>
         </div>
@@ -28,9 +28,10 @@ export const Keyboard = (props) => {
             {shiftActiv ? item.toUpperCase() : item}
           </div>
         )}
-        <div id='spec'
-          className={`search_button_row second ${shiftActiv && 'shift'}`}
-          onClick={onShiftButtonClick}>Shift</div>
+        <div className={`search_button_row second ${shiftActiv && 'shift'}`}
+          onClick={onShiftButtonClick}>
+          <img id='shift' src={shift} alt='shift button' />
+        </div>
         <div id='spec'
           className='search_button_row second'
           onClick={() => onLetterButtonClick(' ')}>Space</div>
@@ -39,7 +40,7 @@ export const Keyboard = (props) => {
   )
 }
 
-Keyboard.propTypes = {
+RusKeyboard.propTypes = {
   onDeleteButtonClick: PropTypes.func,
   onEnterButtonClick: PropTypes.func,
   onShiftButtonClick: PropTypes.func,
@@ -47,4 +48,4 @@ Keyboard.propTypes = {
   shiftActiv: PropTypes.bool,
 }
 
-export default Keyboard
+export default RusKeyboard

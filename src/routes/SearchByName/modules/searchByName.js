@@ -11,16 +11,17 @@ const addSearchResult = searchResult => ({
 // Actions
 // ------------------------------------
 export const getSearchResult = query => {
-  console.log(JSON.stringify({ query }))
   return (dispatch) => {
     return new Promise((resolve, reject) => {
-      fetch(urls.getSearch, {
+      fetch(urls.searchByName, {
         method: 'POST',
         body: JSON.stringify({ query }),
         ...methods.defaultSettings
       })
         .then(resp => resp.json())
-        .then(data => dispatch(addSearchResult(data)))
+        .then(data => {
+          dispatch(addSearchResult(data))
+        })
         .catch(err => console.log(err))
     })
   }
@@ -32,20 +33,22 @@ export const getSearchResult = query => {
 
 
 export const actions = {
-  searchResult: []
+  getSearchResult
 }
 
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [SEARCH_RESULT]: (state, action) => ({ ...state, searchResult: action.searchResult })
+  [SEARCH_RESULT]: (state, action) => ({ ...state, searchResult: action.searchResult.data })
 }
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
-const initialState = {}
+const initialState = {
+  searchResult: []
+}
 export default function searchByNameReducer(state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
 
