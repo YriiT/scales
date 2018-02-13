@@ -6,16 +6,21 @@ export class ProductOnScales extends React.PureComponent {
   constructor(props) {
     super(props)
     const { getProductOnScale } = this.props
-    getProductOnScale()
+    //getProductOnScale()
   }
   componentDidMount() {
     const { location: { pathname }, getProductOnScale } = this.props
-    pathname === '/produc-on-scales' && setInterval(() => getProductOnScale(), 1000)
+    this.props.productsOnScales.length === 0 &&
+      getProductOnScale()
   }
-  // componentWillReceiveProps(nextProps) {
-  //   const { location: { key }, getProductOnScale } = this.props
-  //   key !== nextProps.location.key && getProductOnScale()
-  // }
+  componentWillReceiveProps(nextProps) {
+    const { getProductOnScale, router } = this.props
+    nextProps.productsOnScales.length === 1
+      ? router.push(
+        `/product-info/${nextProps.productsOnScales[0].category_id}?product_id=${nextProps.productsOnScales[0].product_id}`
+      )
+      : getProductOnScale()
+  }
 
   componentWillUnmount() {
     const { clearProductsOnScale } = this.props
@@ -33,6 +38,7 @@ ProductOnScales.propTypes = {
   productsOnScales: PropTypes.array,
   location: PropTypes.object,
   clearProductsOnScale: PropTypes.func,
+  router: PropTypes.object,
 }
 
 export default ProductOnScales

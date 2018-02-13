@@ -1,6 +1,6 @@
 import { urls } from 'utils'
 import { defaultSettings } from '../../../utils/methods'
-import { browserHistory } from 'react-router'
+//import { browserHistory } from 'react-router'
 
 // ------------------------------------
 // Constants
@@ -24,15 +24,7 @@ export const getProductOnScale = () => {
         ...defaultSettings
       })
         .then(res => res.json())
-        .then(data => {
-          if (data.data.length > 1) {
-            dispatch(reciveProductOnScale(data.data))
-          } else if (data.data.length === 0) {
-            clearProductsOnScale()
-          } else {
-            browserHistory.push(`/product-info/wizard?product_id=${data.data[0].product_id}`)
-          }
-        })
+        .then(data => dispatch(reciveProductOnScale(data.data)))
         .catch(error => console.log(error))
     })
   }
