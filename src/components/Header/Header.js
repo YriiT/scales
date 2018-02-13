@@ -1,10 +1,11 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './Header.scss'
 
 class Header extends React.PureComponent {
   componentDidMount() {
     const { getWeight } = this.props
-    setInterval(() => getWeight(), 300)
+    setInterval(() => getWeight(), 5500)
   }
   componentWillReceiveProps(nextProps) {
     const { getPrice, search, weight } = this.props
@@ -19,7 +20,7 @@ class Header extends React.PureComponent {
         <div className='col'>
           <div className='desc'>Weight [kg]</div>
           <div className='val'>
-            {weight || ''}</div>
+            {weight || 0}</div>
         </div>
         <div className='col'>
           <div className='desc'>Price [EUR / kg]</div>
@@ -32,5 +33,11 @@ class Header extends React.PureComponent {
       </div>
     )
   }
+}
+Header.PropTypes = {
+  getPrice: PropTypes.func.isRequired,
+  getWeight: PropTypes.func.isRequired,
+  search: PropTypes.string,
+  weight: PropTypes.string,
 }
 export default Header

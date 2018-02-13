@@ -1,8 +1,7 @@
 import React from 'react'
-import { IndexLink, Link } from 'react-router'
+import PropTypes from 'prop-types'
 import { Header, SideBar, Logo } from 'components'
 import './PageLayout.scss'
-import PropTypes from 'prop-types'
 
 class PageLayout extends React.Component {
   componentWillMount() {
@@ -18,27 +17,31 @@ class PageLayout extends React.Component {
     const { children, router, leftWidth, rightWidth, showTitle, getWeight, getPrice,
       weight, price, logotip, location: { search } } = this.props
     return (
-      <div className='container'>
-        <div style={{ width: leftWidth }} id='left' className='column'>
-          <div className='top-left'>
-            <Logo showTitle={showTitle} logotip={logotip} />
+      <div className='main-container' >
+        <div className='up-row' />
+        <div className='container'>
+          <div style={{ width: leftWidth }} id='left' className='column'>
+            <div className='top-left'>
+              <Logo showTitle={showTitle} logotip={logotip} />
+            </div>
+            <div className='bottom'>
+              <SideBar showTitle={showTitle} goBack={router.goBack} />
+            </div>
           </div>
-          <div className='bottom'>
-            <SideBar showTitle={showTitle} goBack={router.goBack} />
+          <div style={{ width: rightWidth }} id='right' className='column' >
+            <Header
+              getWeight={getWeight}
+              weight={weight}
+              getPrice={getPrice}
+              search={search}
+              price={price}
+            />
+            <div className='bottom'>
+              {children}
+            </div>
           </div>
         </div>
-        <div style={{ width: rightWidth }} id='right' className='column' >
-          <Header
-            getWeight={getWeight}
-            weight={weight}
-            getPrice={getPrice}
-            search={search}
-            price={price}
-          />
-          <div className='bottom'>
-            {children}
-          </div>
-        </div>
+        <div className='down-row' />
       </div>
     )
   }
