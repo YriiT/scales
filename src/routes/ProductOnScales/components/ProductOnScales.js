@@ -8,10 +8,14 @@ export class ProductOnScales extends React.PureComponent {
     const { getProductOnScale } = this.props
     getProductOnScale()
   }
-  componentWillReceiveProps(nextProps) {
-    const { location: { key }, getProductOnScale } = this.props
-    key !== nextProps.location.key && getProductOnScale()
+  componentDidMount() {
+    const { location: { pathname }, getProductOnScale } = this.props
+    pathname === '/produc-on-scales' && setInterval(() => getProductOnScale(), 1000)
   }
+  // componentWillReceiveProps(nextProps) {
+  //   const { location: { key }, getProductOnScale } = this.props
+  //   key !== nextProps.location.key && getProductOnScale()
+  // }
 
   componentWillUnmount() {
     const { clearProductsOnScale } = this.props
