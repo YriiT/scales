@@ -5,7 +5,7 @@ import './Header.scss'
 class Header extends React.PureComponent {
   componentDidMount() {
     const { getWeight } = this.props
-    setInterval(() => getWeight(), 5500)
+    setInterval(() => getWeight(), 500)
   }
   componentWillReceiveProps(nextProps) {
     const { getPrice, search, weight } = this.props
@@ -34,10 +34,11 @@ class Header extends React.PureComponent {
     )
   }
 }
-Header.PropTypes = {
+Header.propTypes = {
   getPrice: PropTypes.func.isRequired,
   getWeight: PropTypes.func.isRequired,
   search: PropTypes.string,
-  weight: PropTypes.string,
+  weight: PropTypes.number,
+  price: PropTypes.number,
 }
 export default Header

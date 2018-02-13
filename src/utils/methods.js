@@ -13,10 +13,7 @@ export const mainGet = (url, actionType) => {
         ...defaultSettings
       })
         .then(res => res.json())
-        .then(data => {
-          console.log(data)
-          dispatch(actionType(data))
-        })
+        .then(data => dispatch(actionType(data)))
         .catch(error => console.log(error))
     })
   }
