@@ -15,11 +15,10 @@ export class ProductOnScales extends React.PureComponent {
   }
   componentWillReceiveProps(nextProps) {
     const { getProductOnScale, router } = this.props
-    nextProps.productsOnScales.length === 1
-      ? router.push(
-        `/product-info/${nextProps.productsOnScales[0].category_id}?product_id=${nextProps.productsOnScales[0].product_id}`
-      )
-      : getProductOnScale()
+    nextProps.productsOnScales.length === 1 && router.push(
+      `/product-info/${nextProps.productsOnScales[0].category_id}?product_id=${nextProps.productsOnScales[0].product_id}`
+    )
+    nextProps.productsOnScales.length === 0 && getProductOnScale()
   }
 
   componentWillUnmount() {
