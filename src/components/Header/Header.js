@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './Header.scss'
 
-class Header extends React.PureComponent {
+class Header extends React.Component {
   componentDidMount() {
     const { getWeight } = this.props
     setInterval(() => getWeight(), 500)
