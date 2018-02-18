@@ -2,25 +2,22 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { PicturesView } from 'components'
 
-export class ProductOnScales extends React.PureComponent {
-  constructor(props) {
-    super(props)
-    const { getProductOnScale } = this.props
-    //getProductOnScale()
-  }
+export class ProductOnScales extends React.Component {
   componentDidMount() {
-    const { location: { pathname }, getProductOnScale } = this.props
-    this.props.productsOnScales.length === 0 &&
+    const { location: { key }, getProductOnScale, productsOnScales } = this.props
+    console.log(key, productsOnScales)
+    productsOnScales.length === 0 &&
       getProductOnScale()
   }
   componentWillReceiveProps(nextProps) {
-    const { getProductOnScale, router } = this.props
+    const { getProductOnScale, router, location: { key } } = this.props
+
+    key !== nextProps.location.key && getProductOnScale()
     nextProps.productsOnScales.length === 1 && router.push(
       `/product-info/${nextProps.productsOnScales[0].category_id}?product_id=${nextProps.productsOnScales[0].product_id}`
     )
     nextProps.productsOnScales.length === 0 && getProductOnScale()
   }
-
   componentWillUnmount() {
     const { clearProductsOnScale } = this.props
     clearProductsOnScale()
